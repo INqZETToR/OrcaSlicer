@@ -144,7 +144,8 @@ bool QidiPrinterAgent::fetch_slot_info(const std::string&        base_url,
 
     // Lambda to build setting_id from slot data
     auto build_setting_id = [&](int filament_type_idx, int vendor_type, const std::string& tray_type) {
-        const int vendor = (vendor_type == 1) ? 1 : 0;
+        //const int vendor = (vendor_type == 1) ? 1 : 0;
+		const int vendor = vendor_type; //vendor info fix
         if (is_numeric(series_id) && filament_type_idx > 0) {
             return "QD_" + series_id + "_" + std::to_string(vendor) + "_" + std::to_string(filament_type_idx);
         }
